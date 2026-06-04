@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="ru">
 <head>
-  <!-- PAY BRO HUB v6: фирменный стиль PAY BRO с мягкими градиентами + оригинальные цвета каналов -->
+  <!-- PAY BRO HUB v9: glow возвращён в угол, MAX фиолетовый, Teletype-кнопка заменена на VK, фон стабилизирован -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#dfff00">
@@ -414,6 +414,357 @@ figcaption{
   color:#030403!important;
 }
 
+
+/* === PAY BRO HUB v7 UX FIXES === */
+.step{
+  display:block!important;
+  padding:16px!important;
+}
+.step p{
+  margin:0!important;
+}
+.step-shot{
+  margin:13px 0 0!important;
+  border:1px solid rgba(223,255,0,.16)!important;
+  background:
+    linear-gradient(180deg,rgba(255,255,255,.045),rgba(0,0,0,.18))!important;
+  border-radius:16px!important;
+  overflow:hidden!important;
+  box-shadow:0 14px 34px rgba(0,0,0,.28)!important;
+}
+.step-shot img{
+  display:block!important;
+  width:100%!important;
+  height:auto!important;
+  max-height:520px!important;
+  object-fit:contain!important;
+  background:#050603!important;
+}
+.step-shot figcaption{
+  padding:9px 11px!important;
+  font-size:12px!important;
+  color:rgba(248,249,239,.58)!important;
+  border-top:1px solid rgba(223,255,0,.10)!important;
+}
+.pill,.toc a,summary{
+  touch-action:manipulation;
+  -webkit-tap-highlight-color:transparent;
+}
+details{
+  scroll-margin-top:16px!important;
+}
+@media(max-width:680px){
+  .step{padding:13px!important}
+  .step-shot{border-radius:14px!important;margin-top:11px!important}
+  .step-shot img{max-height:none!important}
+}
+
+/* === PAY BRO HUB v8 UX FIXES === */
+/* Мягкое свечение в hero без квадратных границ */
+.hero{
+  isolation:isolate;
+}
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:auto 6% -18% auto;
+  width:34%;
+  aspect-ratio:1 / 1;
+  border-radius:50%;
+  pointer-events:none;
+  background:
+    radial-gradient(circle at 50% 50%, rgba(223,255,0,.28) 0%, rgba(223,255,0,.18) 20%, rgba(23,200,255,.12) 42%, rgba(23,200,255,0) 68%);
+  filter:blur(34px);
+  opacity:.88;
+  z-index:0;
+}
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:auto -3% -22% auto;
+  width:46%;
+  aspect-ratio:1 / 1;
+  border-radius:50%;
+  pointer-events:none;
+  background:
+    radial-gradient(circle at 40% 42%, rgba(223,255,0,.15) 0%, rgba(223,255,0,.10) 22%, rgba(23,200,255,.08) 46%, rgba(23,200,255,0) 72%);
+  filter:blur(62px);
+  opacity:.82;
+  z-index:0;
+}
+.hero > *{
+  position:relative;
+  z-index:1;
+}
+
+/* Шаг: слева номер, справа текст, ниже фото на всю ширину */
+.step{
+  display:grid!important;
+  grid-template-columns:44px minmax(0,1fr)!important;
+  column-gap:14px!important;
+  row-gap:12px!important;
+  align-items:start!important;
+  padding:16px!important;
+}
+.step::before{
+  display:grid!important;
+  place-items:center!important;
+  grid-column:1!important;
+  grid-row:1!important;
+  width:40px!important;
+  height:40px!important;
+  margin-top:1px!important;
+}
+.step p{
+  grid-column:2!important;
+  grid-row:1!important;
+  margin:0!important;
+  align-self:center!important;
+}
+.step-shot{
+  grid-column:1 / -1!important;
+  grid-row:2!important;
+  margin:0!important;
+  border:1px solid rgba(223,255,0,.16)!important;
+  background:
+    linear-gradient(180deg,rgba(255,255,255,.045),rgba(0,0,0,.18))!important;
+  border-radius:16px!important;
+  overflow:hidden!important;
+  box-shadow:0 14px 34px rgba(0,0,0,.28)!important;
+}
+.step-shot img{
+  display:block!important;
+  width:100%!important;
+  height:auto!important;
+  max-height:520px!important;
+  object-fit:contain!important;
+  background:#050603!important;
+}
+.step-shot figcaption{
+  padding:9px 11px!important;
+  font-size:12px!important;
+  color:rgba(248,249,239,.58)!important;
+  border-top:1px solid rgba(223,255,0,.10)!important;
+}
+.pill,.toc a,summary{
+  touch-action:manipulation;
+  -webkit-tap-highlight-color:transparent;
+}
+details{
+  scroll-margin-top:16px!important;
+}
+@media(max-width:860px){
+  .hero::before{
+    width:42%;
+    inset:auto 4% -20% auto;
+    filter:blur(30px);
+  }
+  .hero::after{
+    width:54%;
+    inset:auto -8% -26% auto;
+    filter:blur(54px);
+  }
+}
+@media(max-width:680px){
+  .step{
+    grid-template-columns:38px minmax(0,1fr)!important;
+    column-gap:11px!important;
+    row-gap:10px!important;
+    padding:13px!important;
+  }
+  .step::before{
+    width:34px!important;
+    height:34px!important;
+    margin-top:0!important;
+  }
+  .step-shot{
+    border-radius:14px!important;
+  }
+  .step-shot img{
+    max-height:none!important;
+  }
+  .hero::before{
+    width:46%;
+    inset:auto 4% -18% auto;
+    filter:blur(26px);
+    opacity:.82;
+  }
+  .hero::after{
+    width:58%;
+    inset:auto -9% -24% auto;
+    filter:blur(42px);
+    opacity:.72;
+  }
+}
+
+/* === PAY BRO HUB v9 FINAL VISUAL FIXES === */
+
+/* 1) Стабильный фон страницы: градиент не должен "появляться" только после открытия раздела */
+html{
+  background:#050603!important;
+}
+body{
+  position:relative!important;
+  background:#050603!important;
+  overflow-x:hidden!important;
+}
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:0;
+  pointer-events:none;
+  background:
+    radial-gradient(circle at 10% 7%,rgba(223,255,0,.22),transparent 30%),
+    radial-gradient(circle at 88% 11%,rgba(23,200,255,.16),transparent 30%),
+    radial-gradient(circle at 20% 88%,rgba(0,224,168,.10),transparent 34%),
+    radial-gradient(circle at 72% 96%,rgba(223,255,0,.12),transparent 32%),
+    linear-gradient(135deg,#030403 0%,#0a0c09 36%,#10120f 67%,#050605 100%);
+}
+.wrap{
+  position:relative!important;
+  z-index:1!important;
+}
+
+/* 2) Свечение в первом блоке снова в правом нижнем углу, но без квадратной границы */
+.hero{
+  overflow:hidden!important;
+  isolation:isolate!important;
+}
+.hero::before{
+  content:"";
+  position:absolute;
+  right:-12%!important;
+  bottom:-24%!important;
+  left:auto!important;
+  top:auto!important;
+  width:48%!important;
+  aspect-ratio:1 / 1!important;
+  border-radius:999px!important;
+  pointer-events:none!important;
+  background:
+    radial-gradient(circle at 50% 50%,rgba(223,255,0,.30) 0%,rgba(223,255,0,.18) 22%,rgba(23,200,255,.12) 43%,rgba(23,200,255,0) 72%)!important;
+  filter:blur(38px)!important;
+  opacity:.92!important;
+  z-index:0!important;
+}
+.hero::after{
+  content:"";
+  position:absolute;
+  right:-18%!important;
+  bottom:-32%!important;
+  left:auto!important;
+  top:auto!important;
+  width:60%!important;
+  aspect-ratio:1 / 1!important;
+  border-radius:999px!important;
+  pointer-events:none!important;
+  background:
+    radial-gradient(circle at 45% 45%,rgba(223,255,0,.16) 0%,rgba(23,200,255,.10) 36%,rgba(23,200,255,0) 72%)!important;
+  filter:blur(68px)!important;
+  opacity:.84!important;
+  z-index:0!important;
+}
+.hero > *{
+  position:relative!important;
+  z-index:1!important;
+}
+
+/* 3) Открытие раздела не должно менять общий фон/ощущение карточки.
+   Разница только в рамке и лёгкой подсветке заголовка. */
+.panel,.hero,.side{
+  background:
+    linear-gradient(180deg,rgba(255,255,255,.074),rgba(255,255,255,.032)),
+    linear-gradient(135deg,rgba(223,255,0,.052),rgba(23,200,255,.034) 52%,rgba(0,0,0,.14))!important;
+}
+details,
+details[open]{
+  background:
+    linear-gradient(180deg,rgba(255,255,255,.050),rgba(255,255,255,.024))!important;
+}
+details[open]{
+  border-color:rgba(223,255,0,.34)!important;
+}
+details[open] summary{
+  background:
+    linear-gradient(90deg,rgba(223,255,0,.055),rgba(23,200,255,.030),transparent)!important;
+}
+
+/* 4) MAX — фиолетовый, VK — фирменный синий */
+.ico.max{
+  color:#fff!important;
+  background:
+    linear-gradient(135deg,#6d28d9 0%,#8b5cf6 48%,#c084fc 100%)!important;
+  box-shadow:
+    0 0 0 1px rgba(139,92,246,.52),
+    0 14px 30px rgba(139,92,246,.24)!important;
+}
+.btn:has(.ico.max){
+  border-color:rgba(139,92,246,.30)!important;
+}
+.btn:has(.ico.max):hover{
+  background:
+    linear-gradient(135deg,rgba(139,92,246,.14),rgba(192,132,252,.055))!important;
+  border-color:rgba(139,92,246,.52)!important;
+}
+.btn:has(.ico.max) .arr{
+  color:rgba(192,132,252,.95)!important;
+}
+
+.ico.vk{
+  color:#fff!important;
+  background:
+    linear-gradient(135deg,#0077ff 0%,#2787f5 55%,#5aa9ff 100%)!important;
+  box-shadow:
+    0 0 0 1px rgba(39,135,245,.52),
+    0 14px 30px rgba(39,135,245,.22)!important;
+}
+.ico.vk svg{
+  width:24px!important;
+  height:24px!important;
+  display:block!important;
+}
+.btn:has(.ico.vk){
+  border-color:rgba(39,135,245,.30)!important;
+}
+.btn:has(.ico.vk):hover{
+  background:
+    linear-gradient(135deg,rgba(39,135,245,.14),rgba(90,169,255,.050))!important;
+  border-color:rgba(39,135,245,.52)!important;
+}
+.btn:has(.ico.vk) .arr{
+  color:rgba(90,169,255,.95)!important;
+}
+
+@media(max-width:860px){
+  .hero::before{
+    right:-16%!important;
+    bottom:-22%!important;
+    width:62%!important;
+    filter:blur(34px)!important;
+  }
+  .hero::after{
+    right:-24%!important;
+    bottom:-30%!important;
+    width:76%!important;
+    filter:blur(58px)!important;
+  }
+}
+@media(max-width:680px){
+  .hero::before{
+    right:-25%!important;
+    bottom:-22%!important;
+    width:82%!important;
+    filter:blur(30px)!important;
+  }
+  .hero::after{
+    right:-36%!important;
+    bottom:-31%!important;
+    width:96%!important;
+    filter:blur(48px)!important;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -469,52 +820,50 @@ figcaption{
 
     <details id="ps5"><summary>Как войти в аккаунт на PlayStation 5</summary><div class="body">
       <div class="steps">
-        <div class="step"><p>Откройте меню профиля в правом верхнем углу и выберите смену пользователя.</p></div>
-        <div class="step"><p>Нажмите <b>«Добавить пользователя»</b>, затем выберите начало входа.</p></div>
-        <div class="step"><p>Введите <b>логин PlayStation</b> в первое поле и <b>пароль PlayStation</b> во второе поле.</p></div>
-        <div class="step"><p>Когда система запросит подтверждение, используйте один из <b>резервных кодов 2FA</b> из сообщения с данными аккаунта. Коды одноразовые.</p></div>
-        <div class="step"><p>Подтвердите настройки. В блоке персональных данных можно указать любое имя и фамилию.</p></div>
-        <div class="step"><p>На этапе с QR-кодом/ключом доступа не активируйте его. Нажмите <b>«Позже»</b>.</p></div>
-        <div class="step"><p>Если консоль предложит подписку при первом входе, пропустите экран кнопкой <b>«кружок»</b> на геймпаде.</p></div>
+        <div class="step"><p>Выберите иконку текущего профиля в правом верхнем углу, затем откройте <b>«Сменить пользователя»</b>.</p><figure class="step-shot"><img loading="lazy" src="https://img1.teletype.in/files/47/5f/475f7226-cb2e-4691-bd92-073c9b3b5da1.png" alt="PS5 — меню профиля и смена пользователя"><figcaption>PS5 — меню профиля и смена пользователя</figcaption></figure></div>
+        <div class="step"><p>Нажмите <b>«Добавить пользователя»</b> и выберите <b>«Начинаем»</b>.</p><figure class="step-shot"><img loading="lazy" src="https://img3.teletype.in/files/2a/30/2a30a477-71cd-413d-8e51-7651cc8ec39e.png" alt="PS5 — добавление пользователя"><figcaption>PS5 — добавление пользователя</figcaption></figure></div>
+        <div class="step"><p>Введите <b>логин PlayStation</b> в первое поле и <b>пароль PlayStation</b> во второе поле, затем нажмите <b>«Войти в сеть»</b>.</p><figure class="step-shot"><img loading="lazy" src="https://img1.teletype.in/files/cb/fa/cbfa33a9-e4f0-46c8-906b-a0b323fc8f73.png" alt="PS5 — ввод логина и пароля"><figcaption>PS5 — ввод логина и пароля</figcaption></figure></div>
+        <div class="step"><p>В качестве кода подтверждения используйте один из <b>резервных кодов 2FA</b> из сообщения с данными аккаунта. Эти коды одноразовые и на почту не приходят.</p><figure class="step-shot"><img loading="lazy" src="https://img3.teletype.in/files/eb/3b/eb3b9754-1895-4f07-87dd-eb2c3b4c11a1.png" alt="PS5 — резервный код 2FA"><figcaption>PS5 — резервный код 2FA</figcaption></figure></div>
+        <div class="step"><p>Подтвердите настройки аккаунта. В блоке персональной информации можно указать любое имя и фамилию.</p><figure class="step-shot"><img loading="lazy" src="https://img4.teletype.in/files/b8/a8/b8a89c3d-618a-4c08-b319-c5a027e42650.png" alt="PS5 — персональная информация"><figcaption>PS5 — персональная информация</figcaption></figure></div>
+        <div class="step"><p>На этапе с QR-кодом/ключом доступа <b>не активируйте ключ доступа</b>. Нажмите <b>«Позже»</b>.</p><figure class="step-shot"><img loading="lazy" src="https://img4.teletype.in/files/7c/76/7c7650d0-eb4e-4b41-b719-05ca7d10648c.png" alt="PS5 — ключ доступа нужно пропустить"><figcaption>PS5 — ключ доступа нужно пропустить</figcaption></figure></div>
+        <div class="step"><p>Если при первом входе система предложит приобрести подписку, нажмите <b>«кружок»</b> на геймпаде и пропустите это действие.</p></div>
       </div>
-      <div class="gallery" data-gallery="ps5"></div>
     </div></details>
 
     <details id="ps4"><summary>Как войти в аккаунт на PlayStation 4</summary><div class="body">
       <div class="steps">
-        <div class="step"><p>Зажмите кнопку <b>PS</b> на геймпаде, чтобы открыть быстрое меню.</p></div>
-        <div class="step"><p>Перейдите: <b>Питание → Сменить пользователя → Новый пользователь → Создать пользователя</b>.</p></div>
-        <div class="step"><p>Выберите <b>ручной вход</b>, без QR-кода.</p></div>
-        <div class="step"><p>Введите <b>логин PlayStation</b> и <b>пароль PlayStation</b>, затем войдите в сеть.</p></div>
-        <div class="step"><p>Для подтверждения используйте резервный код 2FA из сообщения с данными. На почту эти коды не приходят.</p></div>
-        <div class="step"><p>Подтвердите настройки, заполните персональные поля на своё усмотрение.</p></div>
-        <div class="step"><p>Если появится предложение активировать ключ доступа/QR-код, нажмите <b>«Позже»</b>. Если предложат подписку — пропустите экран.</p></div>
+        <div class="step"><p>Нажмите и удерживайте кнопку <b>PS</b> на геймпаде, чтобы открыть быстрое меню.</p></div>
+        <div class="step"><p>Выберите: <b>Питание → Сменить пользователя → Новый пользователь → Создать пользователя</b>.</p><figure class="step-shot"><img loading="lazy" src="https://img1.teletype.in/files/0b/04/0b0409e8-51cf-4924-90b1-cf80ffa6dcd1.png" alt="PS4 — создание пользователя"><figcaption>PS4 — создание пользователя</figcaption></figure></div>
+        <div class="step"><p>Выберите <b>«Вход вручную»</b>, без QR-кода.</p><figure class="step-shot"><img loading="lazy" src="https://img1.teletype.in/files/8d/40/8d40db10-7bff-4353-b457-4c7c9b4d9137.png" alt="PS4 — вход вручную"><figcaption>PS4 — вход вручную</figcaption></figure></div>
+        <div class="step"><p>Введите <b>логин PlayStation</b> и <b>пароль PlayStation</b>, затем нажмите <b>«Войти в сеть»</b>.</p><figure class="step-shot"><img loading="lazy" src="https://img4.teletype.in/files/f9/49/f9497caf-f12c-47a5-9421-409e5cb73f6b.png" alt="PS4 — логин и пароль"><figcaption>PS4 — логин и пароль</figcaption></figure></div>
+        <div class="step"><p>В качестве кода подтверждения используйте резервный код 2FA из сообщения с данными. На почту эти коды не приходят.</p><figure class="step-shot"><img loading="lazy" src="https://img3.teletype.in/files/60/b1/60b1feb1-f3de-4683-a98a-b40e2f5f0dfc.png" alt="PS4 — резервный код 2FA"><figcaption>PS4 — резервный код 2FA</figcaption></figure></div>
+        <div class="step"><p>Подтвердите настройки аккаунта. В персональных данных можно указать любое имя и фамилию. Если появится ключ доступа/QR-код — нажмите <b>«Позже»</b>.</p><figure class="step-shot"><img loading="lazy" src="https://img4.teletype.in/files/7c/76/7c7650d0-eb4e-4b41-b719-05ca7d10648c.png" alt="PS4 — ключ доступа нужно пропустить"><figcaption>PS4 — ключ доступа нужно пропустить</figcaption></figure></div>
+        <div class="step"><p>Если при первом входе система предложит подписку, пропустите экран кнопкой <b>«кружок»</b> на геймпаде.</p></div>
       </div>
-      <div class="gallery" data-gallery="ps4"></div>
     </div></details>
 
     <details id="twofa"><summary>Как подключить двухфакторную аутентификацию</summary><div class="body">
       <div class="steps">
-        <div class="step"><p><b>PS5:</b> Настройки → Пользователи и учётные записи → Безопасность → 2FA.</p></div>
-        <div class="step"><p><b>PS4:</b> Настройки → Управление учётной записью → Данные учётной записи → Безопасность → 2FA.</p></div>
-        <div class="step"><p>Выберите способ защиты: приложение-аутентификатор или SMS.</p></div>
-        <div class="step"><p>Для приложения установите Google Authenticator или аналог, отсканируйте QR-код либо введите код вручную.</p></div>
-        <div class="step"><p>Для SMS укажите номер телефона. Лучше учитывать правило: один номер — один аккаунт.</p></div>
-        <div class="step"><p>Проверьте, что 2FA работает, и обязательно сохраните резервные коды.</p></div>
+        <div class="step"><p>Скачайте приложение <b>Google Authenticator</b> или другой удобный аутентификатор.</p><figure class="step-shot"><img loading="lazy" src="https://img4.teletype.in/files/b0/71/b071d806-fb20-4017-b516-689c41220e3a.jpeg" alt="Google Authenticator"><figcaption>Google Authenticator</figcaption></figure></div>
+        <div class="step"><p>Откройте приложение и нажмите <b>«Добавить код»</b> или знак <b>+</b>.</p></div>
+        <div class="step"><p>Выберите вариант <b>«Ввести ключ настройки»</b>.</p></div>
+        <div class="step"><p>В поле <b>«Название аккаунта»</b> можно написать любое понятное название, например: <b>ваш ник + PS</b>.</p></div>
+        <div class="step"><p>В поле <b>«Введите ключ»</b> вставьте длинный код, который был передан вместе с данными аккаунта.</p></div>
+        <div class="step"><p>Нажмите <b>«Добавить»</b>. После этого появится 6-значный код, который обновляется примерно раз в 60 секунд.</p></div>
       </div>
-      <div class="card warn" style="margin-top:14px"><strong>Важно</strong><p>Резервные коды нужны, если телефон или приложение будут недоступны. Не теряйте их.</p></div>
+      <div class="card warn" style="margin-top:14px"><strong>Важно</strong><p>Сохраните резервные коды. Они нужны, если телефон или приложение будут недоступны.</p></div>
     </div></details>
 
     <details id="outlook"><summary>Как войти на почту Outlook.com</summary><div class="body">
       <div class="steps">
         <div class="step"><p>Откройте <a href="https://outlook.office.com/" target="_blank" rel="noopener noreferrer"><b>Outlook</b></a>.</p></div>
-        <div class="step"><p>Введите адрес почты. Это тот же логин, который указан в данных аккаунта PlayStation. Вводите без пробелов.</p></div>
-        <div class="step"><p>Введите пароль от почты и нажмите вход.</p></div>
-        <div class="step"><p>Если Microsoft предлагает добавить резервную почту, можно нажать <b>«Пропустить»</b>. Иногда это нужно сделать несколько раз.</p></div>
-        <div class="step"><p>На вопрос о сохранении входа можно нажать <b>«Да»</b>.</p></div>
-        <div class="step"><p>После входа откройте входящие письма. Письма от Sony обычно лежат во вкладке Inbox/E-mail.</p></div>
+        <div class="step"><p>Введите <b>адрес почты</b>. Это тот же логин, который указан в данных аккаунта PlayStation. Вводите без пробелов.</p><figure class="step-shot"><img loading="lazy" src="https://img2.teletype.in/files/18/21/18213214-97b5-4822-bff5-361117ae412c.png" alt="Outlook — ввод адреса почты"><figcaption>Outlook — ввод адреса почты</figcaption></figure></div>
+        <div class="step"><p>Введите <b>пароль от почты</b> и нажмите <b>«Войти»</b>.</p><figure class="step-shot"><img loading="lazy" src="https://img3.teletype.in/files/69/3c/693cf82c-7ed9-4c0f-9abc-c0f4b80e4410.png" alt="Outlook — ввод пароля"><figcaption>Outlook — ввод пароля</figcaption></figure></div>
+        <div class="step"><p>Если Microsoft предложит подключить <b>ключ доступа</b>, нажмите <b>«Отмена»</b>. Если появится окно «Не удалось создать ключ доступа», снова нажмите <b>«Отмена»</b>.</p><figure class="step-shot"><img loading="lazy" src="https://img2.teletype.in/files/dc/88/dc8833ce-a933-4b29-9b0b-c240c244550c.jpeg" alt="Outlook — отмена ключа доступа"><figcaption>Outlook — отмена ключа доступа</figcaption></figure></div>
+        <div class="step"><p>Если появится предложение добавить резервную почту, нажмите <b>«Пропустить»</b>. Иногда это нужно нажать несколько раз.</p><figure class="step-shot"><img loading="lazy" src="https://img2.teletype.in/files/90/cd/90cd2a88-441d-43f0-9ace-685a255bc815.png" alt="Outlook — пропустить резервную почту"><figcaption>Outlook — пропустить резервную почту</figcaption></figure></div>
+        <div class="step"><p>На вопрос <b>«Не выходить из системы?»</b> можно нажать <b>«Да»</b>.</p><figure class="step-shot"><img loading="lazy" src="https://img3.teletype.in/files/a6/4e/a64ea005-56b6-4a98-8a0b-ec88057a6473.png" alt="Outlook — не выходить из системы"><figcaption>Outlook — не выходить из системы</figcaption></figure></div>
+        <div class="step"><p>После входа откройте входящие письма. Письма от Sony обычно находятся во вкладке <b>Inbox / E-mail</b>.</p><figure class="step-shot"><img loading="lazy" src="https://img3.teletype.in/files/26/1f/261f02d6-e4cc-4ce9-a3b8-24a875286d26.png" alt="Outlook — входящие письма"><figcaption>Outlook — входящие письма</figcaption></figure></div>
       </div>
-      <div class="gallery" data-gallery="outlook"></div>
     </div></details>
 
     <details id="faq"><summary>FAQ — частые вопросы</summary><div class="body">
@@ -531,15 +880,16 @@ figcaption{
 
     <details id="errors"><summary>Ошибка «неверный идентификатор входа или пароль»</summary><div class="body">
       <div class="steps">
-        <div class="step"><p>Сначала проверьте ввод: регистр букв, символы, отсутствие лишних пробелов, правильную пару логин + пароль PlayStation.</p></div>
-        <div class="step"><p>Если ошибка остаётся, откройте <a href="https://store.playstation.com/" target="_blank" rel="noopener noreferrer"><b>сайт PlayStation</b></a> со смартфона или ПК.</p></div>
-        <div class="step"><p>Нажмите <b>Sign In</b>, затем выберите пункт с проблемами при входе.</p></div>
-        <div class="step"><p>Откройте восстановление учётной записи и укажите почту от купленного аккаунта.</p></div>
-        <div class="step"><p>Перейдите в почту, найдите письмо от Sony и нажмите кнопку смены пароля.</p></div>
-        <div class="step"><p>Если Sony попросит дату рождения, используйте дату из сообщения с данными аккаунта.</p></div>
-        <div class="step"><p>Задайте новый пароль и попробуйте войти ещё раз.</p></div>
+        <div class="step"><p>Проверьте ввод: регистр букв, символы, отсутствие лишних пробелов, правильную пару <b>логин PlayStation + пароль PlayStation</b>.</p></div>
+        <div class="step"><p>Если ошибка остаётся, откройте <a href="https://store.playstation.com/" target="_blank" rel="noopener noreferrer"><b>сайт PlayStation Store</b></a> со смартфона или ПК.</p></div>
+        <div class="step"><p>Нажмите в правом верхнем углу кнопку <b>Sign In</b>.</p><figure class="step-shot"><img loading="lazy" src="https://img4.teletype.in/files/30/44/30444ec9-bab5-4dc0-a716-37a2417541ea.png" alt="PlayStation Store — кнопка Sign In"><figcaption>PlayStation Store — кнопка Sign In</figcaption></figure></div>
+        <div class="step"><p>Нажмите <b>«Проблемы при входе?»</b>.</p><figure class="step-shot"><img loading="lazy" src="https://img2.teletype.in/files/51/f2/51f21503-7bb3-4c86-9a3f-6e6a30768654.png" alt="PlayStation — проблемы при входе"><figcaption>PlayStation — проблемы при входе</figcaption></figure></div>
+        <div class="step"><p>Выберите <b>«Восстановление учётной записи»</b>.</p><figure class="step-shot"><img loading="lazy" src="https://img4.teletype.in/files/ba/e2/bae294ed-5563-4e97-8070-ae74f9cc780f.png" alt="PlayStation — восстановление учётной записи"><figcaption>PlayStation — восстановление учётной записи</figcaption></figure></div>
+        <div class="step"><p>Введите почту от купленного аккаунта и нажмите <b>«Отправить сообщение»</b>.</p><figure class="step-shot"><img loading="lazy" src="https://img4.teletype.in/files/3f/6e/3f6e2a68-2974-4f25-b923-095e2ebbcfeb.png" alt="Sony — отправка письма для сброса пароля"><figcaption>Sony — отправка письма для сброса пароля</figcaption></figure></div>
+        <div class="step"><p>Перейдите в почту аккаунта, найдите письмо от Sony, откройте его и нажмите <b>Change Password</b>.</p><figure class="step-shot"><img loading="lazy" src="https://img1.teletype.in/files/83/c1/83c1bce3-42bc-4a69-8323-da63de0276d8.png" alt="Письмо Sony — Change Password"><figcaption>Письмо Sony — Change Password</figcaption></figure></div>
+        <div class="step"><p>Пройдите проверку по дате рождения. Дата рождения обычно указана в сообщении с данными аккаунта.</p><figure class="step-shot"><img loading="lazy" src="https://img1.teletype.in/files/ca/b4/cab48ad2-c46f-46a8-b046-7e660a6c76a2.png" alt="Sony — проверка даты рождения"><figcaption>Sony — проверка даты рождения</figcaption></figure></div>
+        <div class="step"><p>Введите новый пароль и попробуйте войти ещё раз.</p></div>
       </div>
-      <div class="gallery" data-gallery="errors"></div>
     </div></details>
   </section>
 
@@ -562,7 +912,7 @@ figcaption{
   <div class="buttons">
     <a class="btn" href="https://t.me/paybrops" target="_blank" rel="noopener noreferrer"><span class="bl"><span class="ico tg" aria-label="Telegram"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M21.94 4.16a1.25 1.25 0 0 0-1.31-.18L3.02 10.8c-.86.33-.82 1.56.06 1.84l4.42 1.39 1.7 5.1c.27.82 1.33 1.05 1.93.43l2.44-2.52 4.33 3.18c.74.54 1.79.13 1.95-.77l3.04-13.92a1.25 1.25 0 0 0-.95-1.37ZM18.76 7.1l-8.3 7.43-.33 3.1-1.12-3.37 9.75-7.16Z"/></svg></span><span><span class="bt">Быстро уточнить вопрос</span><span class="bs">Подходит для срочных моментов</span></span></span><span class="arr">›</span></a>
     <a class="btn" href="https://max.ru/join/nO52V4WKE0GHvTooNMOGF9QSLOJ_v8QN4ahE-48lGaU" target="_blank" rel="noopener noreferrer"><span class="bl"><span class="ico max">MAX</span><span><span class="bt">Открыть там, где удобнее</span><span class="bs">Альтернативный канал связи</span></span></span><span class="arr">›</span></a>
-    <a class="btn" href="https://teletype.in/@paybro/acc" target="_blank" rel="noopener noreferrer"><span class="bl"><span class="ico help">TT</span><span><span class="bt">Посмотреть полную версию</span><span class="bs">Оригинальная инструкция с Teletype</span></span></span><span class="arr">›</span></a>
+    <a class="btn" href="https://vk.com/psstoreturk" target="_blank" rel="noopener noreferrer"><span class="bl"><span class="ico vk" aria-label="VK"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M3.4 7.3h2.7c.1 3.8 1.9 5.4 3.3 5.7V7.3h2.6v3.3c1.4-.1 2.8-1.6 3.3-3.3h2.6c-.4 2-2 3.6-3.1 4.2 1.1.5 2.9 1.8 3.5 4.6h-2.9c-.5-1.6-1.7-2.9-3.4-3.1v3.1h-.3c-5.2 0-8.1-3.2-8.3-8.8Z"/></svg></span><span><span class="bt">Заглянуть в сообщество</span><span class="bs">Новости и обновления PAY BRO</span></span></span><span class="arr">›</span></a>
   </div>
   <div class="side-sec">
     <div class="mini">Перед входом проверьте</div>
@@ -578,89 +928,95 @@ figcaption{
 </div>
 
 <script>
-const galleries={
- ps5:[
-  ["https://img1.teletype.in/files/47/5f/475f7226-cb2e-4691-bd92-073c9b3b5da1.png","PS5 — меню профиля"],
-  ["https://img3.teletype.in/files/2a/30/2a30a477-71cd-413d-8e51-7651cc8ec39e.png","PS5 — добавление пользователя"],
-  ["https://img1.teletype.in/files/cb/fa/cbfa33a9-e4f0-46c8-906b-a0b323fc8f73.png","PS5 — ввод логина и пароля"],
-  ["https://img3.teletype.in/files/eb/3b/eb3b9754-1895-4f07-87dd-eb2c3b4c11a1.png","PS5 — резервный код 2FA"],
-  ["https://img4.teletype.in/files/b8/a8/b8a89c3d-618a-4c08-b319-c5a027e42650.png","PS5 — персональная информация"],
-  ["https://img4.teletype.in/files/7c/76/7c7650d0-eb4e-4b41-b719-05ca7d10648c.png","PS5 — ключ доступа нужно пропустить"]
- ],
- ps4:[
-  ["https://img1.teletype.in/files/0b/04/0b0409e8-51cf-4924-90b1-cf80ffa6dcd1.png","PS4 — создать пользователя"],
-  ["https://img1.teletype.in/files/8d/40/8d40db10-7bff-4353-b457-4c7c9b4d9137.png","PS4 — вход вручную"],
-  ["https://img4.teletype.in/files/f9/49/f9497caf-f12c-47a5-9421-409e5cb73f6b.png","PS4 — логин и пароль"],
-  ["https://img3.teletype.in/files/60/b1/60b1feb1-f3de-4683-a98a-b40e2f5f0dfc.png","PS4 — код подтверждения"],
-  ["https://img4.teletype.in/files/7c/76/7c7650d0-eb4e-4b41-b719-05ca7d10648c.png","PS4 — ключ доступа нужно пропустить"]
- ],
- outlook:[
-  ["https://img2.teletype.in/files/18/21/18213214-97b5-4822-bff5-361117ae412c.png","Outlook — ввод почты"],
-  ["https://img3.teletype.in/files/69/3c/693cf82c-7ed9-4c0f-9abc-c0f4b80e4410.png","Outlook — ввод пароля"],
-  ["https://img2.teletype.in/files/90/cd/90cd2a88-441d-43f0-9ace-685a255bc815.png","Outlook — экран защиты"],
-  ["https://img3.teletype.in/files/a6/4e/a64ea005-56b6-4a98-8a0b-ec88057a6473.png","Outlook — сохранить вход"],
-  ["https://img3.teletype.in/files/26/1f/261f02d6-e4cc-4ce9-a3b8-24a875286d26.png","Outlook — входящие письма"]
- ],
- errors:[
-  ["https://img4.teletype.in/files/30/44/30444ec9-bab5-4dc0-a716-37a2417541ea.png","PlayStation Store — Sign In"],
-  ["https://img2.teletype.in/files/51/f2/51f21503-7bb3-4c86-9a3f-6e6a30768654.png","Проблемы при входе"],
-  ["https://img4.teletype.in/files/ba/e2/bae294ed-5563-4e97-8070-ae74f9cc780f.png","Восстановление аккаунта"],
-  ["https://img4.teletype.in/files/3f/6e/3f6e2a68-2974-4f25-b923-095e2ebbcfeb.png","Сброс пароля"],
-  ["https://img1.teletype.in/files/83/c1/83c1bce3-42bc-4a69-8323-da63de0276d8.png","Письмо Sony"],
-  ["https://img1.teletype.in/files/ca/b4/cab48ad2-c46f-46a8-b046-7e660a6c76a2.png","Подтверждение личности"]
- ]
-};
-document.querySelectorAll("[data-gallery]").forEach(box=>{
- const list=galleries[box.dataset.gallery]||[];
- box.innerHTML=list.map(([src,cap])=>`<figure class="fig"><img loading="lazy" src="${src}" alt="${cap}"><figcaption>${cap}</figcaption></figure>`).join("");
-});
 const input=document.getElementById("search");
 const blocks=[...document.querySelectorAll("[data-search-block],details")];
 
 function closeAllDetails(except=null){
- document.querySelectorAll("details").forEach(d=>{ if(d!==except) d.open=false; });
+  document.querySelectorAll("details").forEach(d=>{
+    if(d!==except) d.open=false;
+  });
+}
+
+function getHashTarget(hash){
+  if(!hash || hash==="#") return null;
+  try{
+    return document.getElementById(decodeURIComponent(hash.slice(1)));
+  }catch(e){
+    return document.querySelector(hash);
+  }
+}
+
+function scrollToTarget(el){
+  const offset=14;
+  const top=el.getBoundingClientRect().top + window.pageYOffset - offset;
+  window.scrollTo({top,behavior:"smooth"});
 }
 
 function openTargetFromHash(hash,scroll=true){
- if(!hash||hash==="#") return false;
- const target=document.querySelector(hash);
- if(!target) return false;
- const detail=target.tagName.toLowerCase()==="details" ? target : target.closest("details");
- if(!detail) return false;
- closeAllDetails(detail);
- detail.open=true;
- if(scroll){
-  setTimeout(()=>detail.scrollIntoView({behavior:"smooth",block:"start"}),60);
- }
- return true;
+  const target=getHashTarget(hash);
+  if(!target) return false;
+
+  target.classList.remove("hidden");
+
+  const detail=target.tagName.toLowerCase()==="details" ? target : target.closest("details");
+  const scrollTarget=detail || target;
+
+  if(detail){
+    detail.classList.remove("hidden");
+    closeAllDetails(detail);
+    detail.open=true;
+  }
+
+  if(scroll){
+    requestAnimationFrame(()=>{
+      requestAnimationFrame(()=>scrollToTarget(scrollTarget));
+    });
+  }
+
+  return true;
 }
 
-document.querySelectorAll('a[href^="#"]').forEach(a=>{
- a.addEventListener("click",e=>{
-  const hash=a.getAttribute("href");
-  if(openTargetFromHash(hash,false)){
-   e.preventDefault();
-   history.pushState(null,"",hash);
-   setTimeout(()=>document.querySelector(hash).scrollIntoView({behavior:"smooth",block:"start"}),60);
+document.addEventListener("click",e=>{
+  const link=e.target.closest('a[href^="#"]');
+  if(!link) return;
+
+  const hash=link.getAttribute("href");
+  if(!getHashTarget(hash)) return;
+
+  e.preventDefault();
+  openTargetFromHash(hash,true);
+
+  if(history.pushState){
+    history.pushState(null,"",hash);
+  }else{
+    location.hash=hash;
   }
- });
 });
 
 window.addEventListener("load",()=>{
- if(location.hash) openTargetFromHash(location.hash,true);
+  if(location.hash) openTargetFromHash(location.hash,true);
 });
 
 input.addEventListener("input",()=>{
- const q=input.value.trim().toLowerCase();
- blocks.forEach(b=>{
-  if(!q){b.classList.remove("hidden");return}
-  const ok=b.innerText.toLowerCase().includes(q);
-  b.classList.toggle("hidden",!ok);
-  if(ok&&b.tagName.toLowerCase()==="details"){
-   closeAllDetails(b);
-   b.open=true;
+  const q=input.value.trim().toLowerCase();
+
+  blocks.forEach(b=>{
+    if(!q){
+      b.classList.remove("hidden");
+      return;
+    }
+
+    const ok=b.innerText.toLowerCase().includes(q);
+    b.classList.toggle("hidden",!ok);
+  });
+
+  if(q){
+    const first=document.querySelector("details:not(.hidden)");
+    if(first){
+      closeAllDetails(first);
+      first.open=true;
+    }
   }
- });
 });
 </script>
 </body>
